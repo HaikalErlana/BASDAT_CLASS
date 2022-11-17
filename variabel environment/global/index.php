@@ -4,7 +4,7 @@
 
     // statis
     function statis(){
-        static $var = " saya adalah siswa XII-RPL";
+        static $var = " saya adalah Siswa XII-RPL";
         echo $var;
         $var++;
     }
@@ -13,7 +13,7 @@
     // lokal
     $skil = " ";
     function lokal(){
-        $skil = " saya bisa coding dan desain";
+        $skil = " saya bisa Coding dan Desain";
         echo $skil;
     }
     lokal();
