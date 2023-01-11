@@ -36,14 +36,6 @@
             </div>
             <div class="card-body">
                 <marquee direction="left"><h3>Total Buku Tersedia : <?php echo $jumlah_buku; ?></h3></marquee>
-                <h5>Total Semua Harga Buku: <?php
-                $db = mysqli_query($koneksi, "SELECT * FROM buku;");
-                while($r = mysqli_fetch_array($db)){
-                $h[] = $r['harga'];
-                }
-                $totalHarga = array_sum($h);
-                echo "Rp. " . number_format($totalHarga) . " ,-";
-                ?></h5>
             <!-- menampilkan data buku -->
         <a href="add.php" class="btn btn-md btn-warning" style="margin-bottom: 10px">TAMBAH DATA</a>
         <a href="../logout.php" class="btn btn-primary" aria-current="page" style="margin-bottom:10px">LOGOUT</a>
@@ -71,7 +63,7 @@
             echo "<td>".$pengarang = $row['pengarang']."</td>";
             echo "<td>".$thn_terbit = $row['thn_terbit']."</td>";
             echo "<td>".$penerbit = $row['penerbit']."</td>";
-            echo "<td>".$harga = $row['harga']."</td>";
+            echo "<td>". "Rp. " .number_format($row['harga'])."</td>";
 
             ?>
             <td> 
@@ -82,10 +74,21 @@
             echo "</tr>";
         }
         ?>
-        
-
         </tbody>
         </table>
+        <center>
+                <h6>Total Semua Harga Buku: 
+                <br>
+                <?php
+                $db = mysqli_query($koneksi, "SELECT * FROM buku;");
+                while($r = mysqli_fetch_array($db)){
+                $h[] = $r['harga'];
+                }
+                $totalHarga = array_sum($h);
+                echo "Rp. " . number_format($totalHarga) . " ,-";
+                ?>
+                </h6>
+        </center>
         </div>
         </div>
         </div>
